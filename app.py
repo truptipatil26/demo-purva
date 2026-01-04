@@ -5,17 +5,30 @@ u_points = 0
 c_points = 0
 round_no = 1
 
+choice_map = {
+    'r': 'rock',
+    'rock': 'rock',
+    'p': 'paper',
+    'paper': 'paper',
+    's': 'scissors',
+    'scissors': 'scissors'
+}
+
 while True:
-    user_choice = input("Enter rock, paper, or scissors (or 'q' to exit): ").strip().lower()
-    
-    if user_choice == 'q':
+    user_input = input(
+    "Enter rock (r), paper (p), or scissors (s) (or 'q' to exit): ").strip().lower()
+
+    if user_input == 'q':
         print("\n🏁 GAME OVER")
         print(f"Final Score → You 🧑: {u_points} | Computer 🤖: {c_points}")
-        break   
-    
-    if user_choice not in ['rock', 'paper', 'scissors']:
+        break
+
+    if user_input not in choice_map:
         print("❌ Invalid choice, try again!")
         continue
+
+    user_choice = choice_map[user_input]
+
     
     option = ['rock', 'paper', 'scissors']
     comp_choice = random.choice(option)
